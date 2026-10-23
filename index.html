@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Nickolas Clothier is a video and motion designer in Arlington, VA, making campaign films, explainers, data stories and social content.">
+<meta property="og:title" content="Nickolas Clothier | Video & Motion Designer">
+<meta property="og:description" content="Campaign films, explainers, data stories and social content, from storyboard to final export.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://nickolasclothier.com/thumbs/showreel-2023.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<title>Nickolas Clothier</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700;900&family=Archivo:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a screening room. Name as an opening title card, featured work as a wall of frames
+   cropped to their real delivery ratios, the archive and resume run as end credits. */
+:root {
+  color-scheme: dark;
+  --ink: #0b0d10;          /* screen black, faint blue bias */
+  --ink-2: #14171c;        /* raised surface */
+  --line: #262a31;
+  --paper: #ece6dc;        /* projected-light white */
+  --dim: #8b9099;
+  --tungsten: #e9a956;     /* 3200K practical light */
+  --display: "Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+  --body: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  --gutter-l: max(16px, env(safe-area-inset-left, 0px));
+  --gutter-r: max(16px, env(safe-area-inset-right, 0px));
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--ink); color: var(--paper);
+  font: 400 16px/1.6 var(--body);
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--tungsten); outline-offset: 3px; }
+.wrap {
+  max-width: 1240px; margin: 0 auto;
+  padding-left: calc(var(--gutter-l) + 1vw); padding-right: calc(var(--gutter-r) + 1vw);
+}
+.mono { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--dim); }
+
+/* film grain over everything */
+.grain { position: fixed; inset: 0; pointer-events: none; z-index: 50; opacity: .07; mix-blend-mode: overlay; }
+
+/* ---------- top bar ---------- */
+.bar { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-block: 20px; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+.bar nav { display: flex; gap: 22px; flex-wrap: wrap; }
+.bar nav a { text-decoration: none; }
+.bar nav a:hover { color: var(--paper); }
+.rec { display: inline-flex; align-items: center; gap: 8px; }
+.rec::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #d8473d; animation: blink 1.6s steps(2) infinite; }
+@keyframes blink { 50% { opacity: .15; } }
+
+/* ---------- title card ---------- */
+.title-card { padding-block: clamp(48px, 9vw, 120px) clamp(40px, 6vw, 80px); display: grid; gap: 28px; }
+.title-card h1 {
+  font-family: var(--display); font-weight: 900; text-transform: uppercase;
+  font-size: clamp(64px, 15.5vw, 212px); line-height: .84; letter-spacing: 0; margin: 0;
+  max-width: 100%; overflow: hidden;
+}
+.title-card h1 span { display: block; white-space: nowrap; width: max-content; }
+.title-card h1 .outline { color: transparent; -webkit-text-stroke: 1.5px var(--paper); }
+.slate { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.slate div { padding: 14px 16px 14px 0; display: grid; gap: 4px; min-width: 0; }
+.slate div + div { padding-left: 16px; border-left: 1px solid var(--line); }
+.slate b { font: 500 15px/1.3 var(--body); color: var(--paper); }
+.lede { max-width: 58ch; font-size: clamp(17px, 1.6vw, 20px); color: #cfc9bf; margin: 0; }
+.lede em { font-style: normal; color: var(--tungsten); }
+.ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn {
+  display: inline-flex; align-items: center; gap: 10px; padding: 13px 20px;
+  font: 600 14px/1 var(--body); letter-spacing: .02em; text-decoration: none;
+  border: 1px solid var(--paper); background: var(--paper); color: var(--ink); cursor: pointer;
+  transition: background .2s, color .2s;
+}
+.btn.ghost { background: transparent; color: var(--paper); border-color: var(--line); }
+.btn:hover { background: var(--tungsten); border-color: var(--tungsten); color: var(--ink); }
+
+/* ---------- section heads ---------- */
+section { padding-block: clamp(48px, 7vw, 96px); }
+.head { display: flex; justify-content: space-between; align-items: end; gap: 20px; flex-wrap: wrap; margin-bottom: 28px; }
+.head h2 { font: 800 clamp(40px, 6vw, 76px)/.9 var(--display); text-transform: uppercase; margin: 0; }
+.filters { display: flex; gap: 6px; flex-wrap: wrap; }
+.filters button {
+  font: 500 12px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase;
+  padding: 9px 12px; background: transparent; color: var(--dim); border: 1px solid var(--line); cursor: pointer;
+}
+.filters button[aria-pressed="true"] { color: var(--ink); background: var(--paper); border-color: var(--paper); }
+
+/* ---------- frames ---------- */
+.frames { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 18px; }
+.frame { grid-column: span 6; display: grid; gap: 12px; text-decoration: none; min-width: 0; }
+.frame.wide { grid-column: span 12; }
+.frame.third { grid-column: span 4; }
+.screen {
+  position: relative; overflow: hidden; background: var(--ink-2);
+  aspect-ratio: 16 / 9; max-width: 100%;
+  border: 1px solid var(--line);
+}
+.frame.wide .screen { aspect-ratio: 2.39 / 1; }
+.screen canvas, .screen img { position: absolute; inset: 0; width: 100%; height: 100%; max-width: 100%; object-fit: cover; transition: transform .8s cubic-bezier(.2,.7,.2,1), filter .4s; }
+.screen .shade { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(11,13,16,.55), rgba(11,13,16,0) 28%, rgba(11,13,16,0) 72%, rgba(11,13,16,.7)); }
+.frame:hover img { transform: scale(1.04); }
+.screen .tc, .screen .ar, .screen .client { position: absolute; font: 500 11px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: rgba(236,230,220,.75); }
+.screen .tc { left: 14px; bottom: 12px; }
+.screen .ar { right: 14px; bottom: 12px; }
+.screen .client { left: 14px; top: 14px; color: var(--paper); }
+.screen .big {
+  position: absolute; left: 14px; right: 14px; bottom: 34px;
+  font: 900 clamp(26px, 3.6vw, 52px)/.88 var(--display); text-transform: uppercase; color: var(--paper);
+  text-wrap: balance; text-shadow: 0 2px 30px rgba(0,0,0,.5);
+}
+.frame.wide .screen .big { font-size: clamp(34px, 6.2vw, 92px); max-width: 14ch; }
+.screen .play {
+  position: absolute; right: 14px; top: 12px; width: 40px; height: 40px; border-radius: 50%;
+  border: 1px solid rgba(236,230,220,.5); display: grid; place-items: center;
+  transition: background .3s, border-color .3s;
+}
+.screen .play::after { content: ""; border-left: 11px solid var(--paper); border-top: 7px solid transparent; border-bottom: 7px solid transparent; margin-left: 3px; }
+.frame:hover canvas { transform: scale(1.04); }
+.frame:hover .play { background: var(--tungsten); border-color: var(--tungsten); }
+.frame:hover .play::after { border-left-color: var(--ink); }
+.meta { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
+.meta h3 { font: 500 16px/1.35 var(--body); margin: 0; min-width: 0; }
+.frame[hidden] { display: none !important; }
+
+/* ---------- credits (archive + resume) ---------- */
+.credits { border-top: 1px solid var(--line); }
+.credits a.row { text-decoration: none; }
+.row {
+  display: grid; grid-template-columns: 1fr 200px 170px 24px; gap: 16px; align-items: baseline;
+  padding-block: 16px; border-bottom: 1px solid var(--line);
+}
+.row .t { font: 600 clamp(20px, 2.4vw, 28px)/1.1 var(--display); text-transform: uppercase; letter-spacing: .01em; min-width: 0; }
+.row .arrow { color: var(--dim); transition: transform .25s, color .25s; }
+a.row:hover .t { color: var(--tungsten); }
+a.row:hover .arrow { color: var(--tungsten); transform: translateX(4px); }
+
+.jobs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 48px; }
+.job { padding-block: 22px; border-bottom: 1px solid var(--line); display: grid; gap: 6px; min-width: 0; }
+.job h3 { font: 700 30px/1 var(--display); text-transform: uppercase; margin: 0; }
+.job .role { font-weight: 600; }
+.job p { margin: 0; color: #bdb7ad; max-width: 60ch; }
+.skills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
+.skills span { font: 500 12px/1 var(--mono); letter-spacing: .06em; padding: 9px 12px; border: 1px solid var(--line); color: #cfc9bf; }
+
+/* ---------- contact ---------- */
+.end { border-top: 1px solid var(--line); text-align: left; }
+.end h2 { font: 900 clamp(56px, 12vw, 170px)/.84 var(--display); text-transform: uppercase; margin: 0 0 28px; }
+.end h2 span { color: var(--tungsten); }
+.contact { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+.email { font: 500 clamp(16px, 2vw, 22px)/1.2 var(--mono); user-select: all; word-break: break-all; }
+.toast { color: var(--tungsten); }
+footer { padding-block: 28px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+/* ---------- load sequence ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  .title-card h1 span { animation: rise 1s cubic-bezier(.2,.7,.2,1) both; }
+  .title-card h1 span:nth-child(2) { animation-delay: .12s; }
+  @keyframes rise { from { transform: translateY(18px); opacity: .35; } }
+}
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+
+@media (max-width: 860px) {
+  .frame, .frame.third { grid-column: span 12; }
+  .frame.wide .screen { aspect-ratio: 16 / 9; }
+  .slate { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .slate div:nth-child(3) { padding-left: 0; border-left: 0; }
+  .slate div:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .row { grid-template-columns: 1fr 24px; }
+  .row .c, .row .k { display: none; }
+  .jobs { grid-template-columns: minmax(0, 1fr); }
+}
+</style>
+<style>
+:root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+body { margin: 0; }
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<canvas class="grain" id="grain" aria-hidden="true"></canvas>
+
+<div class="wrap">
+  <header class="bar">
+    <span class="mono rec">Available for freelance &amp; full-time</span>
+    <nav class="mono" aria-label="Sections">
+      <a href="#work">Work</a><a href="#archive">Archive</a><a href="#about">About</a><a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="title-card">
+    <h1><span>Nickolas</span><span class="outline">Clothier</span></h1>
+    <div class="slate">
+      <div><span class="mono">Role</span><b>Video &amp; Motion Designer</b></div>
+      <div><span class="mono">Now</span><b>GIFFORDS, Washington D.C.</b></div>
+      <div><span class="mono">Based</span><b>Arlington, Virginia</b></div>
+      <div><span class="mono">Tools</span><b>After Effects · Premiere · Illustrator</b></div>
+    </div>
+    <p class="lede">I design and animate for causes that need people to stop scrolling. Campaign films, explainers, data stories and social content, <em>from storyboard to final export.</em></p>
+    <div class="ctas">
+      <a class="btn" href="https://www.behance.net/gallery/160909851/Nickolas-Clothier-2023-Motion-Design-Showreel" target="_blank" rel="noopener">Watch the reel ▸</a>
+      <a class="btn ghost" href="#contact">Get in touch</a>
+    </div>
+  </div>
+</div>
+
+<section id="work">
+  <div class="wrap">
+    <div class="head">
+      <h2>Selected work</h2>
+      <div class="filters" role="group" aria-label="Filter work">
+        <button type="button" id="f-all" data-f="all" aria-pressed="true">All</button>
+        <button type="button" id="f-motion" data-f="motion" aria-pressed="false">Motion</button>
+        <button type="button" id="f-video" data-f="video" aria-pressed="false">Video</button>
+        <button type="button" id="f-design" data-f="design" aria-pressed="false">Design</button>
+      </div>
+    </div>
+    <div class="frames" id="frames"></div>
+  </div>
+</section>
+
+<section id="archive">
+  <div class="wrap">
+    <div class="head"><h2>Archive</h2><span class="mono">12 more projects on Behance</span></div>
+    <div class="credits" id="credits"></div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="head"><h2>End credits</h2><span class="mono">2021 — present</span></div>
+    <div class="jobs">
+      <div class="job"><span class="mono">Jan 2023 — Present · Washington D.C.</span><h3>GIFFORDS</h3><span class="role">Video &amp; Graphic Design Associate</span><p>Edit short and long-form video, concept and animate 2D motion graphics, and turn raw data into charts for reports, social, web and events. Keep the brand consistent across print and digital.</p></div>
+      <div class="job"><span class="mono">Aug — Nov 2022 · Washington D.C.</span><h3>Rising Tide Interactive</h3><span class="role">Graphic Designer (contract)</span><p>Designed ads and email graphics, built platform sizes for Google and Facebook, and made style frames for the video and animation team.</p></div>
+      <div class="job"><span class="mono">Aug 2021 — Aug 2022 · Alexandria, VA</span><h3>522 Productions</h3><span class="role">Branding &amp; Marketing Producer</span><p>Creative lead on the studio's own marketing: shot and edited promo videos and demo reels, ran Google Ads and email campaigns, and maintained the homepage.</p></div>
+      <div class="job"><span class="mono">Jan — Aug 2021 · Birmingham, AL</span><h3>McWane Science Center</h3><span class="role">Marketing Specialist</span><p>Created web, email and social content, and planned, shot and edited the museum's TikTok.</p></div>
+      <div class="job"><span class="mono">2022</span><h3>School of Motion</h3><span class="role">Animation Bootcamp</span></div>
+      <div class="job"><span class="mono">2017 — 2021</span><h3>UAB</h3><span class="role">B.S. Digital Marketing, University of Alabama at Birmingham</span></div>
+    </div>
+    <div class="skills">
+      <span>After Effects</span><span>Premiere Pro</span><span>Illustrator</span><span>Photoshop</span><span>InDesign</span><span>2D Animation</span><span>Data Visualization</span><span>Storyboarding</span><span>Digital Marketing</span>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="end">
+  <div class="wrap">
+    <span class="mono">Fade out</span>
+    <h2>Let's make<br>something <span>move.</span></h2>
+    <div class="contact">
+      <a class="email" id="email" href="mailto:nickolasclothier@gmail.com">nickolasclothier@gmail.com</a>
+      <button class="btn" type="button" id="copy">Copy email</button>
+      <a class="btn ghost" href="https://www.linkedin.com/in/nickolas-clothier/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn ghost" href="https://www.behance.net/nickolasclothier" target="_blank" rel="noopener">Behance</a>
+      <span class="mono toast" id="toast" aria-live="polite"></span>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <footer class="mono"><span>© 2026 Nickolas Clothier</span><span>Arlington, VA · 38.88° N</span></footer>
+</div>
+
+<script>
+const B = "https://www.behance.net/gallery/";
+// size: wide (2.39:1 hero), half, third. hue drives the generated frame.
+const featured = [
+  { t: "2023 Motion Design Showreel", short: "Showreel 2023", client: "Reel", cat: ["motion"], size: "wide", ar: "2.39:1", tc: "Reel · 2023", hue: 32, img: "thumbs/showreel-2023.jpg", url: B + "160909851/Nickolas-Clothier-2023-Motion-Design-Showreel" },
+  { t: "“Why We Fight” with Kim Rubio", short: "Why We Fight", client: "GIFFORDS", cat: ["video"], size: "half", ar: "16:9", tc: "Video", hue: 8, img: "thumbs/why-we-fight.jpg", pos: "center 20%", url: B + "236725223/GIFFORDS-Why-We-Fight-with-Kim-Rubio" },
+  { t: "2026 Annual Scorecard, animated", short: "Scorecard 2026", client: "GIFFORDS", cat: ["motion"], size: "half", ar: "16:9", tc: "Data story · 2026", hue: 210, img: "thumbs/scorecard-2026.jpg", url: B + "243232597/GIFFORDS-2026-Annual-Scorecard-Animated-video" },
+  { t: "Texas 2025 campaign video", short: "Texas 2025", client: "GIFFORDS", cat: ["video"], size: "third", ar: "16:9", tc: "Campaign · 2025", hue: 18, img: "thumbs/texas-2025.jpg", url: B + "225695501/-GIFFORDS-Texas-2025-Campaign-Video" },
+  { t: "Gabby Giffords Story, vertical cut", short: "Gabby's Story", client: "GIFFORDS", cat: ["video"], size: "third", ar: "9:16", tc: "Social cut", hue: 220, img: "thumbs/gabby-story.jpg", pos: "center 28%", url: B + "243233713/Gabby-Giffords-Story-Vertical-Dimensions" },
+  { t: "Community Violence Intervention: PATH explainer", short: "PATH Explainer", client: "GIFFORDS", cat: ["motion"], size: "third", ar: "16:9", tc: "Explainer", hue: 160, img: "thumbs/path-explainer.jpg", url: B + "192886677/Community-Violence-Intervention-PATH-Explainer" },
+  { t: "GIFFORDS YouTube video series", short: "YouTube Series", client: "GIFFORDS", cat: ["video"], size: "half", ar: "16:9", tc: "Watch on YouTube", hue: 355, img: "thumbs/youtube-series.jpg", url: "https://youtu.be/cw0VpjJ3NHU" },
+  { t: "ez911 brand identity", short: "ez911", client: "ez911", cat: ["design"], size: "half", ar: "Brand", tc: "Identity system", hue: 4, img: "thumbs/ez911.jpg", url: B + "156296865/ez911-Brand-Identity" },
+  { t: "Social media graphics & videos", short: "Social", client: "GIFFORDS", cat: ["design", "video"], size: "half", ar: "4:5 · 9:16", tc: "Series", hue: 200, url: B + "192887861/Giffords-Social-Media-Graphics-Videos" },
+  { t: "Storyboards: the blueprint behind every motion", short: "Storyboards", client: "Process", cat: ["motion", "design"], size: "half", ar: "Boards", tc: "Pre-production", hue: 45, url: B + "225693025/-Storyboards-The-Blueprint-Behind-Every-Motion" },
+];
+const archive = [
+  ["Editorial Work", "Editorial", "Print & layout", "236725519/Editorial-Work"],
+  ["Same Day Voter Registration", "New Virginia Majority", "Campaign", "156546847/Same-Day-Voter-Registration-New-Virginia-Majority"],
+  ["I Just Kept Spinning", "Personal", "Motion", "157676681/I-Just-Kept-Spinning-I-danced-myself-to-death"],
+  ["Don't Worry Darling Artwork", "Personal", "Poster art", "156292753/Dont-Worry-Darling-Artwork"],
+  ["522 Fortnightly", "522 Productions", "Email newsletter", "156371975/522-Fortnightly-Video-Marketing-Newsletter"],
+  ["Video is Queen", "522 Productions", "Marketing", "157063729/Video-is-Queen"],
+  ["Political Social Graphics", "Campaigns", "Social", "156338613/Political-Social-Graphics"],
+  ["Political Email Graphic Design", "Campaigns", "Email", "156337537/Political-Email-Graphic-Design"],
+  ["Good F*cking Morning", "Personal", "Design", "156296353/Good-Fcking-Morning"],
+];
+
+const esc = s => s.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const frames = document.getElementById("frames");
+frames.innerHTML = featured.map((p, i) => `
+  <a class="frame ${p.size}" data-cat="${p.cat.join(" ")}" href="${p.url}" target="_blank" rel="noopener">
+    <div class="screen">
+      ${p.img ? `<img src="${p.img}"${p.pos || p.fit ? ` style="${p.pos ? `object-position:${p.pos};` : ""}${p.fit ? `object-fit:${p.fit};` : ""}"` : ""} alt="Still from ${esc(p.t)}" loading="lazy"><div class="shade"></div>` : `<canvas data-i="${i}" aria-hidden="true"></canvas>`}
+      <span class="client">${esc(p.client)}</span>
+      <span class="play" aria-hidden="true"></span>
+      ${p.img ? "" : `<span class="big">${esc(p.short)}</span>`}
+      <span class="tc">${esc(p.tc)}</span>
+      <span class="ar">${esc(p.ar)}</span>
+    </div>
+    <div class="meta"><h3>${esc(p.t)}</h3><span class="mono">${p.cat.join(" / ")}</span></div>
+  </a>`).join("");
+
+document.getElementById("credits").innerHTML = archive.map(a => `
+  <a class="row" href="${B + a[3]}" target="_blank" rel="noopener">
+    <span class="t">${esc(a[0])}</span><span class="mono c">${esc(a[1])}</span><span class="mono k">${esc(a[2])}</span><span class="arrow" aria-hidden="true">→</span>
+  </a>`).join("");
+document.querySelector("#archive .head .mono").textContent = archive.length + " more projects on Behance";
+
+// Generated frames: light leaks, lens bloom and letterbox, seeded per project.
+function rand(seed) { return () => (seed = (seed * 16807) % 2147483647) / 2147483647; }
+function paint(c) {
+  const p = featured[+c.dataset.i], r = rand(+c.dataset.i * 997 + 13);
+  const w = c.width = c.clientWidth * 1.5, h = c.height = c.clientHeight * 1.5;
+  const x = c.getContext("2d");
+  x.fillStyle = `hsl(${p.hue} 30% 6%)`; x.fillRect(0, 0, w, h);
+  for (let k = 0; k < 5; k++) {
+    const gx = r() * w, gy = r() * h * .8, rad = (0.35 + r() * .6) * Math.max(w, h);
+    const g = x.createRadialGradient(gx, gy, 0, gx, gy, rad);
+    const hh = p.hue + (r() - .5) * 40;
+    g.addColorStop(0, `hsla(${hh} ${55 + r() * 25}% ${30 + r() * 25}% / ${.55 + r() * .3})`);
+    g.addColorStop(1, `hsla(${hh} 40% 10% / 0)`);
+    x.globalCompositeOperation = "screen"; x.fillStyle = g; x.fillRect(0, 0, w, h);
+  }
+  x.globalCompositeOperation = "source-over";
+  // streaks
+  for (let k = 0; k < 3; k++) {
+    x.fillStyle = `hsla(${p.hue + 20} 80% 70% / ${.04 + r() * .06})`;
+    x.save(); x.translate(r() * w, 0); x.rotate(-.35 + r() * .2); x.fillRect(0, -h, 2 + r() * 40, h * 3); x.restore();
+  }
+  // vignette
+  const v = x.createRadialGradient(w / 2, h / 2, Math.min(w, h) * .2, w / 2, h / 2, Math.max(w, h) * .75);
+  v.addColorStop(0, "rgba(0,0,0,0)"); v.addColorStop(1, "rgba(0,0,0,.75)");
+  x.fillStyle = v; x.fillRect(0, 0, w, h);
+  // vertical deliverable: draw a 9:16 safe frame
+  if (p.ar === "9:16") {
+    const fw = h * 9 / 16; x.strokeStyle = "rgba(236,230,220,.45)"; x.lineWidth = 2;
+    x.strokeRect(w - fw - w * .08, h * .06, fw, h * .88);
+  }
+}
+const all = [...document.querySelectorAll(".screen canvas")];
+const repaint = () => all.forEach(paint);
+repaint();
+let rt; addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(repaint, 150); });
+
+// filters
+document.querySelectorAll(".filters button").forEach(b => b.addEventListener("click", () => {
+  document.querySelectorAll(".filters button").forEach(o => o.setAttribute("aria-pressed", o === b));
+  const f = b.dataset.f;
+  document.querySelectorAll(".frame").forEach(el => { el.hidden = f !== "all" && !el.dataset.cat.split(" ").includes(f); });
+  repaint();
+}));
+
+// copy email
+document.getElementById("copy").addEventListener("click", () => {
+  const t = document.getElementById("toast"), e = document.getElementById("email");
+  const done = () => { t.textContent = "Copied"; setTimeout(() => t.textContent = "", 2000); };
+  if (navigator.clipboard) navigator.clipboard.writeText(e.textContent).then(done, sel); else sel();
+  function sel() { const s = getSelection(), rg = document.createRange(); rg.selectNodeContents(e); s.removeAllRanges(); s.addRange(rg); t.textContent = "Selected, press Ctrl+C"; }
+});
+
+// Name lockup: size each line so the ink of NICKOLAS and CLOTHIER spans the exact same width,
+// measured glyph-to-glyph (side bearings removed) so both edges line up flush.
+function fitName() {
+  const h = document.querySelector(".title-card h1");
+  const spans = [...h.querySelectorAll("span")];
+  const W = Math.min(h.parentElement.clientWidth, 920);
+  const cx = document.createElement("canvas").getContext("2d");
+  cx.font = '900 100px "Big Shoulders Display"';
+  spans.forEach(s => {
+    const m = cx.measureText(s.textContent.toUpperCase());
+    const ink = m.actualBoundingBoxLeft + m.actualBoundingBoxRight;
+    const fs = 100 * W / ink;
+    s.style.fontSize = fs + "px";
+    s.style.marginLeft = (m.actualBoundingBoxLeft * fs / 100) + "px";
+  });
+}
+if (document.fonts) document.fonts.load('900 100px "Big Shoulders Display"').then(fitName, fitName); else fitName();
+let nt; addEventListener("resize", () => { clearTimeout(nt); nt = setTimeout(fitName, 100); });
+
+// film grain
+(function () {
+  const g = document.getElementById("grain"), x = g.getContext("2d");
+  g.width = 200; g.height = 200;
+  const img = x.createImageData(200, 200);
+  const draw = () => { for (let i = 0; i < img.data.length; i += 4) { const n = Math.random() * 255; img.data[i] = img.data[i + 1] = img.data[i + 2] = n; img.data[i + 3] = 255; } x.putImageData(img, 0, 0); };
+  draw(); g.style.width = "100%"; g.style.height = "100%"; g.style.imageRendering = "pixelated";
+  if (!matchMedia("(prefers-reduced-motion: reduce)").matches) setInterval(draw, 90);
+})();
+</script>
+
+</body>
+</html>
